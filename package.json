@@ -1,0 +1,27 @@
+{
+  "name": "cisco-vos-cloudshark",
+  "version": "1.0.0",
+  "description": "Package for creating packet capture on Cisco VOS applications and uploading to Cloudshark",
+  "main": "main.js",
+  "scripts": { 
+    "start": "NODE_OPTIONS=--experimental-vm-modules NODE_NO_WARNINGS=1 NODE_TLS_REJECT_UNAUTHORIZED=0 node main.js"
+  },
+  "keywords": [
+    "cisco",
+    "vos",
+    "dime",
+    "cloudshark"
+  ],
+  "author": "Jeremy Worden",
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "cisco-axl-perfmon": "^1.9.6",
+    "cisco-dime": "^1.7.9",
+    "cloudshark": "^1.0.5",
+    "dotenv": "^16.0.3",
+    "fs-extra": "^10.1.0",
+    "keypress": "^0.2.1",
+    "ssh2shell": "^2.0.6"
+  }
+}
