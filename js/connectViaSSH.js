@@ -87,7 +87,7 @@ module.exports = {
           userName: options.username,
           password: options.password,
         },
-        commands: [`utils network capture-rotate sizePerFile 1 file ${options.filename}`],
+        commands: [`utils network capture-rotate file ${options.filename}`],
         standardPrompt: "admin:",
         passwordPrompt: "#",
         passphrasePrompt: "#",

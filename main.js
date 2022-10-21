@@ -7,15 +7,16 @@ const cloudshark = require("cloudshark");
 const cloudsharkApiToken = process.env.CLOUDSHARKAPI;
 
 var settings = {
-  version: "14.0",
-  hostname: "cucm01-pub.automate.builders",
-  username: "administrator",
-  password: "h0mel@b",
-  commandTimeout: 300000, //Timeout value in milliseconds. Up to 2147483647, which is just over 24 days.
+  version: process.env.VERSION,
+  hostname: process.env.PUBLISHER,
+  username: process.env.USERNAME,
+  password: process.env.PASSWORD,
+  commandTimeout: process.env.COMMANDTIMEOUT || 300000, //Timeout value in milliseconds. Up to 2147483647, which is just over 24 days.
   verbose: false,
   debug: false,
-  filename: "testcapture",
+  filename: process.env.FILENAME,
 };
+var tagsArr = ["cisco", "cucm"];
 
 (async () => {
   console.log(
@@ -55,7 +56,7 @@ var settings = {
   });
 
   console.log(
-    "Starting packets captures on",
+    "Starting packet captures on",
     servers.length,
     "servers via ssh."
   );
@@ -78,7 +79,7 @@ var settings = {
     )
     .then(async (results) => {
       console.log(
-        "Packet capture completed. Retrieving a list of files from server(s) via API"
+        "Packet capture completed. Retrieving a list of files from server(s) via DIME API"
       );
       var pcapLogs = await blueBirdPromise.map(
         results,
@@ -134,7 +135,6 @@ var settings = {
                   result.filename.lastIndexOf("/") + 1
                 ); // Let's get the file name from the full path
 
-                var tagsArr = ["cisco", "cucm"];
                 var uploadHttpPacket = await cloudshark.upload(
                   cloudsharkApiToken,
                   result.data,
