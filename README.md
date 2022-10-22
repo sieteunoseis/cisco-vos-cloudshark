@@ -22,9 +22,13 @@ Also if you are using self signed certificates on Cisco VOS products you may nee
 Suggested enviromental variables:
 
 ```env
-NODE_OPTIONS=--experimental-vm-modules
-NODE_NO_WARNINGS=1
-NODE_TLS_REJECT_UNAUTHORIZED=0
+PUBLISHER="10.10.20.1"
+USERNAME="administrator"
+PASSWORD="ciscopsdt"
+VERSION="14.0"
+COMMANDTIMEOUT="150000"
+FILENAME="testcapture"
+CLOUDSHARKAPI=""
 ```
 
 ## Usage
@@ -37,6 +41,6 @@ npm run start
 
 ## Blog
 
-Read more on my blog at: [Medium](https://devnetsandbox.cisco.com/)
+Read more on my blog at: [Medium](https://medium.com/automate-builders/automating-pcap-captures-on-cisco-vos-applications-90d4b54588de)
 
 Note: Examples are using Cisco's DevNet sandbox information. Find more information here: [Cisco DevNet](https://devnetsandbox.cisco.com/)

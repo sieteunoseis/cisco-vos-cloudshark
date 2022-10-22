@@ -1,6 +1,6 @@
 {
   "name": "cisco-vos-cloudshark",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Package for creating packet capture on Cisco VOS applications and uploading to Cloudshark",
   "main": "main.js",
   "scripts": { 
